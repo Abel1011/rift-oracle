@@ -51,6 +51,16 @@ export interface BanStats {
   count: number;
 }
 
+export interface ChampionCombo {
+  champion1: string;
+  champion2: string;
+  gamesPlayedTogether: number;
+  wins: number;
+  winRate: number;
+  // How often champion2 is picked when champion1 is picked (affinity)
+  affinityRate: number;
+}
+
 export interface GamePicksBans {
   teamPicks: string[];      // Our team's picks (champion names)
   teamBans: string[];       // Our team's bans
@@ -154,6 +164,9 @@ export interface TeamData {
   // Champion stats
   mostPicked: ChampionPickStats[];
   mostBannedAgainst: BanStats[];
+  
+  // Champion combos (pairs that are frequently picked together)
+  championCombos: ChampionCombo[];
   
   // Recent matches with details
   recentMatches: MatchResult[];
@@ -525,6 +538,11 @@ function aggregateTeamData(
   const championPicksMap = new Map<string, { count: number; wins: number }>();
   const bansAgainstMap = new Map<string, number>();
   
+  // Champion combo tracking - tracks pairs of champions picked together
+  const championComboMap = new Map<string, { games: number; wins: number }>();
+  // Track how many games each champion was picked (for affinity calculation)
+  const championGamesMap = new Map<string, number>();
+  
   // Match records
   const matches: MatchResult[] = [];
 
@@ -682,6 +700,24 @@ function aggregateTeamData(
         draft,
       });
 
+      // Track champion combos (pairs picked together in same game)
+      // Update individual champion games count
+      for (const champName of draft.teamPicks) {
+        championGamesMap.set(champName, (championGamesMap.get(champName) || 0) + 1);
+      }
+      // Generate all pairs and track them
+      for (let i = 0; i < draft.teamPicks.length; i++) {
+        for (let j = i + 1; j < draft.teamPicks.length; j++) {
+          // Create a consistent key (alphabetically sorted)
+          const [champ1, champ2] = [draft.teamPicks[i], draft.teamPicks[j]].sort();
+          const comboKey = `${champ1}|${champ2}`;
+          const existing = championComboMap.get(comboKey) || { games: 0, wins: 0 };
+          existing.games++;
+          if (gameWon) existing.wins++;
+          championComboMap.set(comboKey, existing);
+        }
+      }
+
       // Player stats
       for (const player of ourGameTeam.players || []) {
         const existing = playerStatsMap.get(player.id) || {
@@ -803,6 +839,33 @@ function aggregateTeamData(
     .slice(0, 20)
     .map(([name, count]) => ({ name, count }));
 
+  // Format champion combos (pairs that are frequently picked together)
+  const championCombos: ChampionCombo[] = Array.from(championComboMap.entries())
+    .filter(([_, stats]) => stats.games >= 2) // Minimum 2 games together to be significant
+    .map(([comboKey, stats]) => {
+      const [champion1, champion2] = comboKey.split('|');
+      const champ1Games = championGamesMap.get(champion1) || 1;
+      const champ2Games = championGamesMap.get(champion2) || 1;
+      // Affinity: how often they appear together relative to how often the less-picked one appears
+      const minGames = Math.min(champ1Games, champ2Games);
+      const affinityRate = (stats.games / minGames) * 100;
+      
+      return {
+        champion1,
+        champion2,
+        gamesPlayedTogether: stats.games,
+        wins: stats.wins,
+        winRate: stats.games > 0 ? (stats.wins / stats.games) * 100 : 0,
+        affinityRate: Math.min(100, affinityRate), // Cap at 100%
+      };
+    })
+    .sort((a, b) => {
+      // Sort by affinity first, then by games played together
+      if (b.affinityRate !== a.affinityRate) return b.affinityRate - a.affinityRate;
+      return b.gamesPlayedTogether - a.gamesPlayedTogether;
+    })
+    .slice(0, 15); // Top 15 combos
+
   // Sort matches by date (newest first)
   matches.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -864,6 +927,7 @@ function aggregateTeamData(
     players,
     mostPicked,
     mostBannedAgainst,
+    championCombos,
     recentMatches: matches.slice(0, 30),
     seriesIds,
   };

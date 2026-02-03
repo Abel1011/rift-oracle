@@ -44,7 +44,8 @@ import {
   Castle,
   CircleDot,
   Skull,
-  X
+  X,
+  Link2
 } from 'lucide-react';
 
 type AnalysisTab = 'draft' | 'history' | 'h2h' | 'prematch';
@@ -1305,6 +1306,97 @@ function TeamHistoryTab({ teamData, teamConfig, side, loading }: TeamHistoryTabP
           </div>
         </div>
       </div>
+
+      {/* Champion Combos Section */}
+      {teamData.championCombos && teamData.championCombos.length > 0 && (
+        <div className="hextech-border overflow-hidden mt-6">
+          <div className="px-4 py-3 border-b border-[var(--gold-5)]/30 bg-gradient-to-r from-[var(--hextech-metal)]/50 via-green-900/10 to-transparent flex items-center justify-between">
+            <h3 className="text-sm font-[var(--font-beaufort)] font-bold text-gold-glow tracking-wider flex items-center gap-2">
+              <Link2 className="w-4 h-4 text-green-400" />CHAMPION SYNERGIES
+            </h3>
+            <span className="text-[9px] text-[var(--muted)] uppercase tracking-wider">Frequently Paired Together</span>
+          </div>
+          <div className="p-4">
+            <p className="text-[10px] text-[var(--muted)] mb-4 flex items-center gap-2">
+              <Info className="w-3 h-3" />
+              Champions this team frequently picks together - useful for predicting draft patterns
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {teamData.championCombos.slice(0, 6).map((combo, i) => {
+                const champ1 = getChampionByName(combo.champion1);
+                const champ2 = getChampionByName(combo.champion2);
+                const isHighAffinity = combo.affinityRate >= 70;
+                const isHighWinRate = combo.winRate >= 60;
+                return (
+                  <div 
+                    key={`${combo.champion1}-${combo.champion2}`} 
+                    className={`relative p-3 border transition-all hover:scale-[1.02] ${
+                      isHighAffinity 
+                        ? 'bg-gradient-to-r from-green-900/20 via-[var(--hextech-black)]/50 to-green-900/20 border-green-500/40' 
+                        : 'bg-[var(--hextech-black)]/50 border-[var(--gold-5)]/20 hover:border-[var(--gold-4)]/40'
+                    }`}
+                  >
+                    {/* Combo Rank Badge */}
+                    <div className={`absolute -top-2 -left-2 w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10 ${
+                      i === 0 ? 'bg-green-500 text-white' : 'bg-[var(--hextech-metal)] text-[var(--gold-3)] border border-[var(--gold-5)]'
+                    }`}>
+                      {i + 1}
+                    </div>
+                    
+                    {/* Champions Row */}
+                    <div className="flex items-center justify-center gap-2 mb-3 pt-1">
+                      {/* Champion 1 */}
+                      <div className="text-center">
+                        {champ1 ? (
+                          <img src={champ1.imageUrl} alt={combo.champion1} className="w-12 h-12 border-2 border-[var(--gold-4)] mx-auto" />
+                        ) : (
+                          <div className="w-12 h-12 bg-[var(--hextech-metal)] border-2 border-[var(--gold-4)] flex items-center justify-center text-[8px]">?</div>
+                        )}
+                        <div className="text-[10px] font-[var(--font-beaufort)] text-[var(--gold-1)] mt-1 truncate max-w-[60px]">{combo.champion1}</div>
+                      </div>
+                      
+                      {/* Link Icon */}
+                      <div className="flex flex-col items-center">
+                        <Link2 className={`w-5 h-5 ${isHighAffinity ? 'text-green-400' : 'text-[var(--gold-4)]'}`} />
+                        <span className={`text-[8px] mt-0.5 ${isHighAffinity ? 'text-green-400 font-bold' : 'text-[var(--muted)]'}`}>
+                          {combo.affinityRate.toFixed(0)}%
+                        </span>
+                      </div>
+                      
+                      {/* Champion 2 */}
+                      <div className="text-center">
+                        {champ2 ? (
+                          <img src={champ2.imageUrl} alt={combo.champion2} className="w-12 h-12 border-2 border-[var(--gold-4)] mx-auto" />
+                        ) : (
+                          <div className="w-12 h-12 bg-[var(--hextech-metal)] border-2 border-[var(--gold-4)] flex items-center justify-center text-[8px]">?</div>
+                        )}
+                        <div className="text-[10px] font-[var(--font-beaufort)] text-[var(--gold-1)] mt-1 truncate max-w-[60px]">{combo.champion2}</div>
+                      </div>
+                    </div>
+                    
+                    {/* Stats Row */}
+                    <div className="flex justify-between items-center text-[9px] border-t border-[var(--gold-5)]/20 pt-2">
+                      <div className="text-[var(--muted)]">
+                        <span className="text-[var(--gold-3)] font-bold">{combo.gamesPlayedTogether}</span> games together
+                      </div>
+                      <div className={`font-bold ${isHighWinRate ? 'text-green-400' : combo.winRate >= 50 ? 'text-[var(--blue-2)]' : 'text-[var(--red-3)]'}`}>
+                        {combo.winRate.toFixed(0)}% WR
+                      </div>
+                    </div>
+                    
+                    {/* High Affinity Badge */}
+                    {isHighAffinity && (
+                      <div className="absolute -top-2 -right-2 px-1.5 py-0.5 bg-green-500 text-[7px] font-bold text-white tracking-wider">
+                        CORE DUO
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Player Stats */}
       {teamData.players && teamData.players.length > 0 && (

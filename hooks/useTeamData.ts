@@ -12,6 +12,7 @@ export type {
   PlayerChampionStats,
   ChampionPickStats,
   BanStats,
+  ChampionCombo,
   MatchResult,
   ObjectiveStats,
   SideStats,

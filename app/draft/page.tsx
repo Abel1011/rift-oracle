@@ -928,6 +928,42 @@ export default function Home() {
         </aside>
       </main>
 
+      {/* ===== FLOATING AI ANALYSIS BUTTON ===== */}
+      <button
+        onClick={() => window.open('/analysis', '_blank')}
+        className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 group"
+      >
+        {/* Outer glow ring */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--blue-2)] via-[var(--gold-3)] to-[var(--red-3)] blur-xl opacity-60 group-hover:opacity-100 animate-pulse scale-110" />
+        
+        {/* Button container */}
+        <div className="relative flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 
+          bg-gradient-to-r from-[var(--blue-5)] via-[var(--hextech-metal)] to-[var(--red-5)]
+          border-2 border-[var(--gold-3)] rounded-full
+          shadow-[0_0_30px_rgba(200,155,60,0.4),inset_0_1px_0_rgba(255,255,255,0.1)]
+          hover:shadow-[0_0_50px_rgba(200,155,60,0.6),0_0_80px_rgba(11,198,227,0.3),0_0_80px_rgba(238,90,75,0.3)]
+          hover:border-[var(--gold-2)]
+          hover:scale-110
+          transition-all duration-300 ease-out
+          cursor-pointer"
+        >
+          {/* Brain icon with animation */}
+          <Brain className="w-5 h-5 md:w-6 md:h-6 text-[var(--gold-2)] group-hover:text-[var(--gold-1)] animate-pulse" />
+          
+          {/* Text */}
+          <span className="font-[var(--font-beaufort)] font-bold text-sm md:text-base tracking-widest uppercase
+            bg-gradient-to-r from-[var(--blue-1)] via-[var(--gold-1)] to-[var(--red-2)]
+            bg-clip-text text-transparent
+            group-hover:from-[var(--blue-2)] group-hover:via-white group-hover:to-[var(--red-1)]">
+            AI Analysis
+          </span>
+          
+          {/* Sparkle effect */}
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-[var(--gold-2)] rounded-full animate-ping opacity-75" />
+          <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[var(--blue-2)] rounded-full animate-ping opacity-75 animation-delay-500" />
+        </div>
+      </button>
+
       {/* ===== FOOTER - STICKY ===== */}
       <footer className="h-8 flex-shrink-0 border-t border-[var(--gold-5)]/30 bg-[var(--hextech-metal)]/50 px-6 flex items-center justify-between">
         <div className="flex items-center gap-6 text-[10px] font-[var(--font-spiegel)] text-[var(--muted-dark)] tracking-wider">

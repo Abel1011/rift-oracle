@@ -496,6 +496,40 @@ function generateRecommendations(
       // 3. Synergy with existing picks
       const ourChamps = ourPicks.map(id => getChampionById(id)).filter(Boolean);
       
+      // 3a. Check historical champion combos from team data
+      if (ourTeamData?.championCombos && ourChamps.length > 0) {
+        for (const pickedChamp of ourChamps) {
+          if (!pickedChamp) continue;
+          
+          // Find combos involving this candidate champion and any already-picked champion
+          const relevantCombo = ourTeamData.championCombos.find(combo => {
+            const champNameLower = champion.name.toLowerCase();
+            const pickedNameLower = pickedChamp.name.toLowerCase();
+            return (
+              (combo.champion1.toLowerCase() === champNameLower && combo.champion2.toLowerCase() === pickedNameLower) ||
+              (combo.champion2.toLowerCase() === champNameLower && combo.champion1.toLowerCase() === pickedNameLower)
+            );
+          });
+          
+          if (relevantCombo && relevantCombo.gamesPlayedTogether >= 2) {
+            const affinityBonus = relevantCombo.affinityRate >= 70 ? 12 : relevantCombo.affinityRate >= 50 ? 8 : 4;
+            const winRateBonus = relevantCombo.winRate >= 60 ? 8 : relevantCombo.winRate >= 50 ? 4 : 0;
+            score += affinityBonus + winRateBonus;
+            
+            if (!tags.includes('SYNERGY')) tags.push('SYNERGY');
+            
+            const pairedWith = pickedChamp.name;
+            if (relevantCombo.affinityRate >= 70) {
+              reasons.push(`Core duo with ${pairedWith} (${relevantCombo.gamesPlayedTogether}G, ${relevantCombo.winRate.toFixed(0)}% WR)`);
+            } else {
+              reasons.push(`Often paired with ${pairedWith} (${relevantCombo.affinityRate.toFixed(0)}% affinity)`);
+            }
+            break; // Only count one combo per champion to avoid double-scoring
+          }
+        }
+      }
+      
+      // 3b. Generic tag-based synergy (fallback if no historical data)
       // Tank + ADC synergy
       if (ourChamps.some(c => c?.tags.includes('Tank')) && champion.tags.includes('Marksman')) {
         score += 5;
@@ -688,6 +722,35 @@ function predictEnemyPicks(
     if (missingRoles.some(r => champion.roles.includes(r))) {
       probability += 8;
       reasons.push(`Fills missing ${champion.roles.join('/')} role`);
+    }
+    
+    // 3b. Check if this champion forms a known combo with enemy's existing picks
+    if (enemyTeamData?.championCombos && enemyChamps.length > 0) {
+      for (const pickedChamp of enemyChamps) {
+        if (!pickedChamp) continue;
+        
+        const relevantCombo = enemyTeamData.championCombos.find(combo => {
+          const champNameLower = champion.name.toLowerCase();
+          const pickedNameLower = pickedChamp.name.toLowerCase();
+          return (
+            (combo.champion1.toLowerCase() === champNameLower && combo.champion2.toLowerCase() === pickedNameLower) ||
+            (combo.champion2.toLowerCase() === champNameLower && combo.champion1.toLowerCase() === pickedNameLower)
+          );
+        });
+        
+        if (relevantCombo && relevantCombo.gamesPlayedTogether >= 2) {
+          // Significant combo found - increase prediction probability
+          const comboBonus = relevantCombo.affinityRate >= 70 ? 25 : relevantCombo.affinityRate >= 50 ? 15 : 8;
+          probability += comboBonus;
+          
+          if (relevantCombo.affinityRate >= 70) {
+            reasons.unshift(`Core duo with ${pickedChamp.name} (${relevantCombo.affinityRate.toFixed(0)}% paired)`);
+          } else {
+            reasons.push(`Often paired with ${pickedChamp.name}`);
+          }
+          break;
+        }
+      }
     }
     
     // 4. High pick rate in meta
