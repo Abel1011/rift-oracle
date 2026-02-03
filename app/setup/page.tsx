@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { TeamSearch } from '@/components/TeamSearch';
 import { useDraftConfig } from '@/lib/context/DraftConfigContext';
-import { ArrowLeftRight, Shield, Sword, Zap, ArrowRight } from 'lucide-react';
+import { ArrowLeftRight, Shield, Sword, Zap, ArrowRight, Brain } from 'lucide-react';
 
 // Star field component - creates a drifting star effect
 interface StarProps {
@@ -113,15 +113,15 @@ export default function SetupPage() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 relative flex items-center justify-center">
                 <div className="absolute inset-0 border-2 border-[var(--gold-3)] rotate-45 bg-gradient-to-br from-[var(--gold-5)]/30 to-transparent" />
                 <div className="absolute inset-1 sm:inset-1.5 border border-[var(--gold-4)] rotate-45" />
-                <span className="relative text-[var(--gold-2)] font-[var(--font-beaufort)] font-black text-base sm:text-lg md:text-xl tracking-tighter">C9</span>
+                <Brain className="relative w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[var(--gold-2)]" />
               </div>
               <div className="absolute inset-0 blur-xl bg-[var(--gold-3)]/30 -z-10" />
             </div>
             
             <div className="flex flex-col">
               <h1 className="text-lg sm:text-xl md:text-2xl font-[var(--font-beaufort)] font-bold tracking-wider">
-                <span className="text-gold-glow">DRAFT</span>
-                <span className="text-[var(--gold-1)] ml-1 sm:ml-2 hidden xs:inline">SIMULATOR</span>
+                <span className="text-gold-glow">RIFT</span>
+                <span className="text-[var(--gold-1)] ml-1 sm:ml-2">ORACLE</span>
               </h1>
               <div className="hidden sm:flex items-center gap-2 mt-0.5 md:mt-1">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[var(--gold-3)] blink" />

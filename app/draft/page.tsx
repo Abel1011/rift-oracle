@@ -30,6 +30,7 @@ export default function Home() {
   const [selectedTag, setSelectedTag] = useState<ChampionTag | 'ALL'>('ALL');
   const [sortBy, setSortBy] = useState<SortOption>('name');
   const [timerEnabled, setTimerEnabled] = useState(true);
+  const [turnStartTime, setTurnStartTime] = useState<number>(Date.now());
   
   // Mobile responsive state
   const [mobilePanel, setMobilePanel] = useState<MobilePanel>('none');
@@ -57,6 +58,11 @@ export default function Home() {
   useEffect(() => {
     publishState(draftState);
   }, [draftState, publishState]);
+
+  // Reset turn timer when turn changes
+  useEffect(() => {
+    setTurnStartTime(Date.now());
+  }, [draftState.currentTurn]);
 
   const currentAction = getNextAction(draftState.currentTurn);
 
@@ -97,6 +103,9 @@ export default function Home() {
   const handleChampionClick = useCallback((championId: string) => {
     if (!currentAction || draftState.isFinished) return;
 
+    const now = Date.now();
+    const durationMs = now - turnStartTime;
+
     // Create deep copy to avoid mutating original state
     const newState = {
       ...draftState,
@@ -104,6 +113,8 @@ export default function Home() {
       blueBans: [...draftState.blueBans],
       redPicks: [...draftState.redPicks],
       redBans: [...draftState.redBans],
+      timings: [...(draftState.timings || [])],
+      draftStartTime: draftState.draftStartTime || now,
     };
     
     if (currentAction.type === 'PICK') {
@@ -114,12 +125,22 @@ export default function Home() {
       else newState.redBans.push(championId);
     }
 
+    // Record timing for this action
+    newState.timings.push({
+      turn: draftState.currentTurn,
+      championId,
+      side: currentAction.side,
+      type: currentAction.type,
+      timestamp: now,
+      durationMs,
+    });
+
     newState.currentTurn += 1;
     if (newState.currentTurn >= 20) newState.isFinished = true;
     
     setDraftState(newState);
     setSearchTerm('');
-  }, [currentAction, draftState]);
+  }, [currentAction, draftState, turnStartTime]);
 
   // Auto-pick random champion when timer runs out
   const handleTimeUp = useCallback(() => {
@@ -138,7 +159,10 @@ export default function Home() {
       redBans: [],
       currentTurn: 0,
       isFinished: false,
+      timings: [],
+      draftStartTime: undefined,
     });
+    setTurnStartTime(Date.now());
   }, []);
 
   const getRoleIcon = (role: string) => {

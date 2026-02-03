@@ -185,14 +185,31 @@ export default function AnalysisPage() {
           </div>
         )}
         
-        {isHydrated && !config.blueTeam && !config.redTeam && (
+        {isHydrated && (!config.blueTeam || !config.redTeam) && (
           <div className="flex flex-col items-center justify-center py-20 px-4">
             <div className="hextech-border p-8 max-w-lg text-center">
               <div className="w-20 h-20 mx-auto mb-6 border-2 border-[var(--gold-3)] rotate-45 flex items-center justify-center bg-gradient-to-br from-[var(--gold-5)]/30 to-transparent">
                 <Users className="w-10 h-10 rotate-[-45deg] text-[var(--gold-2)]" />
               </div>
-              <h2 className="text-2xl font-[var(--font-beaufort)] font-bold text-gold-glow mb-3">No Teams Configured</h2>
-              <p className="text-sm text-[var(--muted)] mb-6">Configure teams in Setup to activate Rift Oracle intelligence.</p>
+              <h2 className="text-2xl font-[var(--font-beaufort)] font-bold text-gold-glow mb-3">Teams Required</h2>
+              <p className="text-sm text-[var(--muted)] mb-4">Configure both Blue and Red teams to activate Rift Oracle intelligence.</p>
+              <div className="flex items-center justify-center gap-4 mb-6 text-sm">
+                <div className={`flex items-center gap-2 px-3 py-2 rounded ${config.blueTeam ? 'bg-[var(--blue-5)]/30 border border-[var(--blue-3)]/50' : 'bg-[var(--hextech-metal)]/30 border border-[var(--muted-dark)]'}`}>
+                  <Shield className={`w-4 h-4 ${config.blueTeam ? 'text-[var(--blue-2)]' : 'text-[var(--muted)]'}`} />
+                  <span className={config.blueTeam ? 'text-[var(--blue-2)]' : 'text-[var(--muted)]'}>
+                    {config.blueTeam ? config.blueTeam.nameShortened || config.blueTeam.name : 'Not Selected'}
+                  </span>
+                  {config.blueTeam && <Check className="w-4 h-4 text-green-400" />}
+                </div>
+                <span className="text-[var(--muted)]">vs</span>
+                <div className={`flex items-center gap-2 px-3 py-2 rounded ${config.redTeam ? 'bg-[var(--red-5)]/30 border border-[var(--red-4)]/50' : 'bg-[var(--hextech-metal)]/30 border border-[var(--muted-dark)]'}`}>
+                  <Swords className={`w-4 h-4 ${config.redTeam ? 'text-[var(--red-3)]' : 'text-[var(--muted)]'}`} />
+                  <span className={config.redTeam ? 'text-[var(--red-3)]' : 'text-[var(--muted)]'}>
+                    {config.redTeam ? config.redTeam.nameShortened || config.redTeam.name : 'Not Selected'}
+                  </span>
+                  {config.redTeam && <Check className="w-4 h-4 text-green-400" />}
+                </div>
+              </div>
               <a href="/setup" className="hextech-button inline-flex items-center gap-2 px-6 py-3">
                 <Target className="w-4 h-4" /><span className="font-bold tracking-wider">GO TO SETUP</span>
               </a>
@@ -200,7 +217,7 @@ export default function AnalysisPage() {
           </div>
         )}
 
-        {isHydrated && (config.blueTeam || config.redTeam) && (
+        {isHydrated && config.blueTeam && config.redTeam && (
           <div className="max-w-[1800px] mx-auto p-4 md:p-6">
             {/* Assist Banner */}
             <div className={`relative mb-6 ${assistFor === 'BLUE' ? 'hextech-border-blue' : 'hextech-border-red'} overflow-hidden`}>
@@ -354,7 +371,7 @@ export default function AnalysisPage() {
                     <span className="text-[var(--gold-3)] font-[var(--font-beaufort)] tracking-wider">Analyzing draft state...</span>
                   </div>
                 )}
-                {draftState.isFinished && <DraftCompletePanel analysis={analysis} assistFor={assistFor} assistedTeam={assistedTeam} />}
+                {draftState.isFinished && <DraftCompletePanel analysis={analysis} assistFor={assistFor} assistedTeam={assistedTeam} draftState={draftState} blueTeam={config.blueTeam} redTeam={config.redTeam} />}
                 {!draftState.isFinished && !draftAnalysis.loading && !analysis && (
                   <div className="hextech-border p-12 text-center">
                     <Zap className="w-12 h-12 mx-auto mb-4 text-[var(--gold-4)] opacity-50" />
@@ -849,9 +866,48 @@ function CompositionPanel({ title, picks, bans, side, teamData, teamName, compos
   );
 }
 
-function DraftCompletePanel({ analysis, assistFor, assistedTeam }: { analysis: DraftAnalysis | null; assistFor: 'BLUE' | 'RED'; assistedTeam: { name: string; nameShortened?: string; logoUrl?: string } | null; }) {
+interface DraftCompletePanelProps {
+  analysis: DraftAnalysis | null;
+  assistFor: 'BLUE' | 'RED';
+  assistedTeam: { name: string; nameShortened?: string; logoUrl?: string } | null;
+  draftState: DraftState;
+  blueTeam: { name: string; nameShortened?: string } | null;
+  redTeam: { name: string; nameShortened?: string } | null;
+}
+
+function DraftCompletePanel({ analysis, assistFor, assistedTeam, draftState, blueTeam, redTeam }: DraftCompletePanelProps) {
   const winProb = analysis?.winProbability?.ourTeam ?? 50;
   const favorable = winProb >= 50;
+  const timings = draftState.timings || [];
+  
+  // Calculate timing statistics
+  const blueTimings = timings.filter(t => t.side === 'BLUE');
+  const redTimings = timings.filter(t => t.side === 'RED');
+  const blueBanTimings = blueTimings.filter(t => t.type === 'BAN');
+  const redBanTimings = redTimings.filter(t => t.type === 'BAN');
+  const bluePickTimings = blueTimings.filter(t => t.type === 'PICK');
+  const redPickTimings = redTimings.filter(t => t.type === 'PICK');
+  
+  const avgTime = (arr: typeof timings) => arr.length > 0 ? arr.reduce((sum, t) => sum + t.durationMs, 0) / arr.length : 0;
+  const totalTime = (arr: typeof timings) => arr.reduce((sum, t) => sum + t.durationMs, 0);
+  const maxTime = (arr: typeof timings) => arr.length > 0 ? Math.max(...arr.map(t => t.durationMs)) : 0;
+  const minTime = (arr: typeof timings) => arr.length > 0 ? Math.min(...arr.map(t => t.durationMs)) : 0;
+  
+  const formatTime = (ms: number) => {
+    if (ms < 1000) return `${ms.toFixed(0)}ms`;
+    return `${(ms / 1000).toFixed(1)}s`;
+  };
+
+  const totalDraftTime = draftState.draftStartTime && timings.length > 0 
+    ? timings[timings.length - 1].timestamp - draftState.draftStartTime 
+    : totalTime(timings);
+    
+  const getChampionName = (id: string) => CHAMPIONS.find(c => c.id === id)?.name || id;
+
+  // Find slowest picks for each team
+  const blueSlowest = blueTimings.length > 0 ? blueTimings.reduce((max, t) => t.durationMs > max.durationMs ? t : max) : null;
+  const redSlowest = redTimings.length > 0 ? redTimings.reduce((max, t) => t.durationMs > max.durationMs ? t : max) : null;
+
   return (
     <div className={`${favorable ? 'hextech-border-blue' : 'hextech-border-red'} overflow-hidden`}>
       <div className={`p-8 text-center ${favorable ? 'bg-gradient-to-b from-[var(--blue-6)]/50 to-transparent' : 'bg-gradient-to-b from-[var(--red-6)]/50 to-transparent'}`}>
@@ -862,7 +918,7 @@ function DraftCompletePanel({ analysis, assistFor, assistedTeam }: { analysis: D
         <div className={`text-6xl font-[var(--font-beaufort)] font-black mb-2 tabular-nums ${favorable ? 'text-[var(--blue-2)]' : 'text-[var(--red-3)]'}`}>{winProb.toFixed(1)}%</div>
         <div className="text-sm text-[var(--muted)] mb-6">Predicted Win Rate for {assistedTeam?.name || assistFor}</div>
         {analysis?.compositionAnalysis.ourTeam && (
-          <div className="hextech-border max-w-md mx-auto p-4 text-left">
+          <div className="hextech-border max-w-md mx-auto p-4 text-left mb-6">
             <div className="text-[10px] text-[var(--muted)] uppercase tracking-wider mb-3 text-center">Draft Summary</div>
             {analysis.compositionAnalysis.ourTeam.strengths.length > 0 && (
               <div className="mb-3">
@@ -876,6 +932,124 @@ function DraftCompletePanel({ analysis, assistFor, assistedTeam }: { analysis: D
                 <div className="text-sm text-[var(--gold-1)] mt-1">{analysis.compositionAnalysis.ourTeam.weaknesses.join(' • ')}</div>
               </div>
             )}
+          </div>
+        )}
+        
+        {/* Draft Timing Analysis */}
+        {timings.length > 0 && (
+          <div className="hextech-border max-w-2xl mx-auto p-4 text-left">
+            <div className="text-[10px] text-[var(--muted)] uppercase tracking-wider mb-4 text-center flex items-center justify-center gap-2">
+              <History className="w-4 h-4" />
+              DRAFT TIMING ANALYSIS
+            </div>
+            
+            {/* Total Draft Time */}
+            <div className="text-center mb-6">
+              <div className="text-3xl font-[var(--font-beaufort)] font-black text-[var(--gold-2)] tabular-nums">
+                {formatTime(totalDraftTime)}
+              </div>
+              <div className="text-[10px] text-[var(--muted)] uppercase tracking-wider">Total Draft Duration</div>
+            </div>
+            
+            {/* Team Comparison */}
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              {/* Blue Team Stats */}
+              <div className="p-3 bg-[var(--blue-6)]/30 border border-[var(--blue-4)]/30">
+                <div className="flex items-center gap-2 mb-3">
+                  <Shield className="w-4 h-4 text-[var(--blue-2)]" />
+                  <span className="text-xs font-[var(--font-beaufort)] font-bold text-[var(--blue-2)]">
+                    {blueTeam?.nameShortened || 'BLUE'}
+                  </span>
+                </div>
+                <div className="space-y-2 text-[11px]">
+                  <div className="flex justify-between">
+                    <span className="text-[var(--muted)]">Avg Pick Time</span>
+                    <span className="text-[var(--gold-1)] font-mono">{formatTime(avgTime(bluePickTimings))}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[var(--muted)]">Avg Ban Time</span>
+                    <span className="text-[var(--gold-1)] font-mono">{formatTime(avgTime(blueBanTimings))}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[var(--muted)]">Total Time</span>
+                    <span className="text-[var(--gold-1)] font-mono">{formatTime(totalTime(blueTimings))}</span>
+                  </div>
+                  {blueSlowest && (
+                    <div className="pt-2 border-t border-[var(--blue-4)]/30">
+                      <span className="text-[var(--muted)]">Slowest: </span>
+                      <span className="text-[var(--gold-1)]">{getChampionName(blueSlowest.championId)}</span>
+                      <span className="text-[var(--blue-2)] ml-1">({formatTime(blueSlowest.durationMs)})</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              {/* Red Team Stats */}
+              <div className="p-3 bg-[var(--red-6)]/30 border border-[var(--red-4)]/30">
+                <div className="flex items-center gap-2 mb-3">
+                  <Swords className="w-4 h-4 text-[var(--red-3)]" />
+                  <span className="text-xs font-[var(--font-beaufort)] font-bold text-[var(--red-3)]">
+                    {redTeam?.nameShortened || 'RED'}
+                  </span>
+                </div>
+                <div className="space-y-2 text-[11px]">
+                  <div className="flex justify-between">
+                    <span className="text-[var(--muted)]">Avg Pick Time</span>
+                    <span className="text-[var(--gold-1)] font-mono">{formatTime(avgTime(redPickTimings))}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[var(--muted)]">Avg Ban Time</span>
+                    <span className="text-[var(--gold-1)] font-mono">{formatTime(avgTime(redBanTimings))}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[var(--muted)]">Total Time</span>
+                    <span className="text-[var(--gold-1)] font-mono">{formatTime(totalTime(redTimings))}</span>
+                  </div>
+                  {redSlowest && (
+                    <div className="pt-2 border-t border-[var(--red-4)]/30">
+                      <span className="text-[var(--muted)]">Slowest: </span>
+                      <span className="text-[var(--gold-1)]">{getChampionName(redSlowest.championId)}</span>
+                      <span className="text-[var(--red-3)] ml-1">({formatTime(redSlowest.durationMs)})</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            
+            {/* Timeline */}
+            <div className="border-t border-[var(--gold-5)]/30 pt-4">
+              <div className="text-[10px] text-[var(--muted)] uppercase tracking-wider mb-3">Pick/Ban Timeline</div>
+              <div className="space-y-1 max-h-60 overflow-y-auto custom-scrollbar">
+                {timings.map((timing, idx) => {
+                  const champ = CHAMPIONS.find(c => c.id === timing.championId);
+                  const isBlue = timing.side === 'BLUE';
+                  const isBan = timing.type === 'BAN';
+                  return (
+                    <div 
+                      key={idx} 
+                      className={`flex items-center gap-2 p-2 text-[11px] ${isBlue ? 'bg-[var(--blue-6)]/20' : 'bg-[var(--red-6)]/20'}`}
+                    >
+                      <span className={`w-5 h-5 flex items-center justify-center text-[9px] font-bold ${isBlue ? 'bg-[var(--blue-4)] text-white' : 'bg-[var(--red-5)] text-white'}`}>
+                        {idx + 1}
+                      </span>
+                      <span className={`w-12 text-[9px] font-bold uppercase ${isBlue ? 'text-[var(--blue-2)]' : 'text-[var(--red-3)]'}`}>
+                        {timing.side}
+                      </span>
+                      <span className={`w-10 text-[9px] px-1.5 py-0.5 rounded ${isBan ? 'bg-[var(--red-5)]/50 text-[var(--red-3)]' : 'bg-[var(--gold-5)]/30 text-[var(--gold-2)]'}`}>
+                        {timing.type}
+                      </span>
+                      {champ && (
+                        <img src={champ.imageUrl} alt={champ.name} className={`w-6 h-6 ${isBan ? 'grayscale opacity-60' : ''}`} />
+                      )}
+                      <span className="flex-1 text-[var(--gold-1)] truncate">{champ?.name || timing.championId}</span>
+                      <span className={`font-mono tabular-nums ${timing.durationMs > 15000 ? 'text-[var(--red-3)]' : timing.durationMs > 8000 ? 'text-[var(--gold-3)]' : 'text-[var(--blue-2)]'}`}>
+                        {formatTime(timing.durationMs)}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         )}
       </div>

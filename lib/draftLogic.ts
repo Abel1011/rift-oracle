@@ -34,6 +34,8 @@ export const INITIAL_DRAFT_STATE: DraftState = {
   redBans: [],
   currentTurn: 0,
   isFinished: false,
+  timings: [],
+  draftStartTime: undefined,
 };
 
 export function getNextAction(currentTurn: number) {

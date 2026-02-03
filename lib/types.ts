@@ -26,6 +26,15 @@ export interface Recommendation {
   score: number;
 }
 
+export interface DraftTiming {
+  turn: number;
+  championId: string;
+  side: 'BLUE' | 'RED';
+  type: 'PICK' | 'BAN';
+  timestamp: number;
+  durationMs: number; // Time taken for this pick/ban
+}
+
 export interface DraftState {
   bluePicks: string[];
   blueBans: string[];
@@ -33,4 +42,7 @@ export interface DraftState {
   redBans: string[];
   currentTurn: number;
   isFinished: boolean;
+  // Timing data
+  timings?: DraftTiming[];
+  draftStartTime?: number;
 }

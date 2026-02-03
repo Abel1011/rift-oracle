@@ -115,7 +115,11 @@ Rift Oracle is powered exclusively by the **GRID Data Platform**, utilizing:
 - **File Download API**: For bulk historical match data extraction
 - **Statistics API**: For comprehensive player and team performance metrics
 
-All data is cached locally to ensure responsive performance during live draft scenarios. The system processes end-state game files to extract granular statistics including gold differentials, objective timings, and draft sequences.
+**Intelligent Data Pipeline**: GRID match files are downloaded once and persisted locally. Subsequent requests for the same team data leverage the cached files, dramatically reducing API calls and ensuring sub-second response times during live draft scenarios. The system processes end-state game files to extract granular statistics including gold differentials, objective timings, and draft sequences.
+
+**Automated Data Synchronization**: A configured cron job periodically syncs team data and series information from GRID, ensuring the recommendation engine operates on fresh competitive data without manual intervention.
+
+**Redis Caching Layer**: High-frequency lookups (team stats, player profiles, head-to-head records) are cached in Redis with configurable TTL, providing instant access to computed analytics while respecting GRID API rate limits.
 
 ---
 
@@ -130,13 +134,15 @@ All data is cached locally to ensure responsive performance during live draft sc
 | Styling | Tailwind CSS |
 | State Sync | Custom localStorage/BroadcastChannel adapters |
 | Data Source | GRID GraphQL + File Download APIs |
-| Caching | File-based cache with TTL management |
+| Caching | Redis + File-based cache with TTL management |
+| Background Jobs | Cron-based data synchronization |
 
 ### Key Services
 
 - **Draft Analysis Service**: Core recommendation engine that processes draft state against team data to generate picks, predictions, and warnings
-- **GRID Data Service**: Handles data fetching, caching, and normalization from GRID APIs
+- **GRID Data Service**: Handles data fetching, downloading, caching, and normalization from GRID APIs
 - **Sync Adapter**: Enables real-time state synchronization between draft and analysis pages
+- **Cron Sync Service**: Automated background jobs for keeping team and series data up-to-date
 
 ### Performance Optimizations
 
@@ -144,6 +150,8 @@ All data is cached locally to ensure responsive performance during live draft sc
 - Request deduplication to avoid redundant data fetches
 - Abort controller integration to cancel stale requests when draft state changes
 - Progressive data loading with polling for long-running preparation jobs
+- Downloaded GRID files are reused across sessions, eliminating redundant network requests
+- Redis caching for computed analytics with intelligent cache invalidation
 
 ---
 
@@ -151,12 +159,14 @@ All data is cached locally to ensure responsive performance during live draft sc
 
 ### Prerequisites
 - Node.js 18.x or later
+- Redis server (for caching layer)
 - GRID API Key
 
 ### Environment Setup
 Create a `.env.local` file:
 ```env
 GRID_API_KEY=your_grid_api_key_here
+REDIS_URL=redis://localhost:6379
 ```
 
 ### Installation
