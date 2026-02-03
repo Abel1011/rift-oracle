@@ -52,6 +52,9 @@ interface SyncSeriesReport {
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
+// Delay between each series request to avoid 429 rate limiting
+const SERIES_DELAY_MS = 1500;
+
 function parseBoolean(value: string | null, defaultValue: boolean) {
   if (value === null) return defaultValue;
   if (value === 'true' || value === '1') return true;
@@ -95,7 +98,14 @@ async function ingestTeamSeries(team: CuratedTeam, maxSeriesPerTeam: number, onl
   const seriesIds = await getTeamRecentSeriesIds(team.id, maxSeriesPerTeam, TITLE_IDS.LOL);
   result.seriesFound = seriesIds.length;
 
-  for (const seriesId of seriesIds) {
+  for (let idx = 0; idx < seriesIds.length; idx++) {
+    const seriesId = seriesIds[idx];
+    
+    // Add delay between series to avoid 429 rate limiting (except for first one)
+    if (idx > 0) {
+      await delay(SERIES_DELAY_MS);
+    }
+    
     const seriesResult: SeriesIngestResult = {
       seriesId,
       endState: 'skipped',
@@ -152,7 +162,7 @@ async function ingestTeamSeries(team: CuratedTeam, maxSeriesPerTeam: number, onl
     }
   }
 
-  result.errors += result.series.filter(s => s.endState === 'error' || s.events === 'error').length;
+  result.errors = result.series.filter(s => s.endState === 'error' || s.events === 'error').length;
 
   return result;
 }
@@ -163,7 +173,7 @@ export async function GET(request: NextRequest) {
   const region = searchParams.get('region');
   const teamId = searchParams.get('teamId');
   const maxSeriesPerTeam = parseInt(searchParams.get('maxSeries') || '10', 10);
-  const delayMs = parseInt(searchParams.get('delay') || '500', 10);
+  const delayMs = parseInt(searchParams.get('delay') || '2000', 10); // Increased to avoid 429 rate limiting
   const onlyMissing = parseBoolean(searchParams.get('onlyMissing'), true);
   const limitTeamsRaw = searchParams.get('limitTeams');
   const limitTeams = limitTeamsRaw ? parseInt(limitTeamsRaw, 10) : undefined;

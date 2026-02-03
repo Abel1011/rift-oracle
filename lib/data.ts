@@ -6,9 +6,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Aatrox',
     name: 'Aatrox',
     roles: ['TOP'],
-    winRate: 0.50,
-    pickRate: 0.12,
-    banRate: 0.15,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Aatrox.png'
   },
@@ -16,9 +13,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ambessa',
     name: 'Ambessa',
     roles: ['TOP', 'JUNGLE'],
-    winRate: 0.48,
-    pickRate: 0.15,
-    banRate: 0.35,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/1b20e5e8cea542296a62b09dd4a67e81570ce80c-496x560.png?accountingTag=LoL&auto=format&fit=fill&q=80&w=496'
   },
@@ -26,9 +20,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Camille',
     name: 'Camille',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.08,
-    banRate: 0.06,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Camille.png'
   },
@@ -36,9 +27,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Darius',
     name: 'Darius',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.10,
-    banRate: 0.12,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Darius.png'
   },
@@ -46,9 +34,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Fiora',
     name: 'Fiora',
     roles: ['TOP'],
-    winRate: 0.50,
-    pickRate: 0.07,
-    banRate: 0.08,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Fiora.png'
   },
@@ -56,9 +41,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Gangplank',
     name: 'Gangplank',
     roles: ['TOP', 'MID'],
-    winRate: 0.49,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Fighter', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Gangplank.png'
   },
@@ -66,9 +48,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Garen',
     name: 'Garen',
     roles: ['TOP'],
-    winRate: 0.52,
-    pickRate: 0.08,
-    banRate: 0.03,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Garen.png'
   },
@@ -76,9 +55,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Gnar',
     name: 'Gnar',
     roles: ['TOP'],
-    winRate: 0.49,
-    pickRate: 0.06,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Gnar.png'
   },
@@ -86,9 +62,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Gwen',
     name: 'Gwen',
     roles: ['TOP'],
-    winRate: 0.48,
-    pickRate: 0.07,
-    banRate: 0.10,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Gwen.png'
   },
@@ -96,9 +69,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Illaoi',
     name: 'Illaoi',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.05,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Illaoi.png'
   },
@@ -106,9 +76,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Irelia',
     name: 'Irelia',
     roles: ['TOP', 'MID'],
-    winRate: 0.48,
-    pickRate: 0.09,
-    banRate: 0.08,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Irelia.png'
   },
@@ -116,9 +83,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Jax',
     name: 'Jax',
     roles: ['TOP', 'JUNGLE'],
-    winRate: 0.52,
-    pickRate: 0.10,
-    banRate: 0.15,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Jax.png'
   },
@@ -126,9 +90,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Jayce',
     name: 'Jayce',
     roles: ['TOP', 'MID'],
-    winRate: 0.48,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Fighter', 'Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Jayce.png'
   },
@@ -136,9 +97,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kennen',
     name: 'Kennen',
     roles: ['TOP'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Mage', 'Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kennen.png'
   },
@@ -146,9 +104,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'KSante',
     name: "K'Sante",
     roles: ['TOP'],
-    winRate: 0.47,
-    pickRate: 0.08,
-    banRate: 0.20,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/KSante.png'
   },
@@ -156,9 +111,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Malphite',
     name: 'Malphite',
     roles: ['TOP'],
-    winRate: 0.52,
-    pickRate: 0.08,
-    banRate: 0.05,
     tags: ['Tank', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Malphite.png'
   },
@@ -166,9 +118,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Mordekaiser',
     name: 'Mordekaiser',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.07,
-    banRate: 0.08,
     tags: ['Fighter', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Mordekaiser.png'
   },
@@ -176,9 +125,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Nasus',
     name: 'Nasus',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nasus.png'
   },
@@ -186,9 +132,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ornn',
     name: 'Ornn',
     roles: ['TOP'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ornn.png'
   },
@@ -196,9 +139,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Renekton',
     name: 'Renekton',
     roles: ['TOP'],
-    winRate: 0.48,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Renekton.png'
   },
@@ -206,9 +146,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Riven',
     name: 'Riven',
     roles: ['TOP'],
-    winRate: 0.50,
-    pickRate: 0.07,
-    banRate: 0.05,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Riven.png'
   },
@@ -216,9 +153,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Rumble',
     name: 'Rumble',
     roles: ['TOP', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Fighter', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Rumble.png'
   },
@@ -226,9 +160,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Sett',
     name: 'Sett',
     roles: ['TOP', 'SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.08,
-    banRate: 0.05,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Sett.png'
   },
@@ -236,9 +167,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Shen',
     name: 'Shen',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Shen.png'
   },
@@ -246,9 +174,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Teemo',
     name: 'Teemo',
     roles: ['TOP'],
-    winRate: 0.52,
-    pickRate: 0.06,
-    banRate: 0.08,
     tags: ['Marksman', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Teemo.png'
   },
@@ -256,9 +181,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Tryndamere',
     name: 'Tryndamere',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Tryndamere.png'
   },
@@ -266,9 +188,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Urgot',
     name: 'Urgot',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Urgot.png'
   },
@@ -276,9 +195,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Volibear',
     name: 'Volibear',
     roles: ['TOP', 'JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Volibear.png'
   },
@@ -286,9 +202,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Yone',
     name: 'Yone',
     roles: ['TOP', 'MID'],
-    winRate: 0.49,
-    pickRate: 0.15,
-    banRate: 0.25,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Yone.png'
   },
@@ -298,9 +211,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Elise',
     name: 'Elise',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Elise.png'
   },
@@ -308,9 +218,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Evelynn',
     name: 'Evelynn',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.06,
     tags: ['Assassin', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Evelynn.png'
   },
@@ -318,9 +225,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Graves',
     name: 'Graves',
     roles: ['JUNGLE'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.05,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Graves.png'
   },
@@ -328,9 +232,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Hecarim',
     name: 'Hecarim',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.07,
-    banRate: 0.05,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Hecarim.png'
   },
@@ -338,9 +239,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'JarvanIV',
     name: 'Jarvan IV',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.10,
-    banRate: 0.05,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/JarvanIV.png'
   },
@@ -348,9 +246,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kayn',
     name: 'Kayn',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.12,
-    banRate: 0.08,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kayn.png'
   },
@@ -358,9 +253,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Khazix',
     name: "Kha'Zix",
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.10,
-    banRate: 0.07,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Khazix.png'
   },
@@ -368,9 +260,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kindred',
     name: 'Kindred',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kindred.png'
   },
@@ -378,9 +267,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'LeeSin',
     name: 'Lee Sin',
     roles: ['JUNGLE'],
-    winRate: 0.49,
-    pickRate: 0.18,
-    banRate: 0.07,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/LeeSin.png'
   },
@@ -388,9 +274,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Lillia',
     name: 'Lillia',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Fighter', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Lillia.png'
   },
@@ -398,9 +281,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'MasterYi',
     name: 'Master Yi',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.08,
-    banRate: 0.10,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/MasterYi.png'
   },
@@ -408,9 +288,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Nidalee',
     name: 'Nidalee',
     roles: ['JUNGLE'],
-    winRate: 0.48,
-    pickRate: 0.05,
-    banRate: 0.02,
     tags: ['Assassin', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nidalee.png'
   },
@@ -418,9 +295,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Nocturne',
     name: 'Nocturne',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nocturne.png'
   },
@@ -428,9 +302,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Nunu',
     name: 'Nunu & Willump',
     roles: ['JUNGLE'],
-    winRate: 0.52,
-    pickRate: 0.05,
-    banRate: 0.02,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nunu.png'
   },
@@ -438,9 +309,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'RekSai',
     name: "Rek'Sai",
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/RekSai.png'
   },
@@ -448,9 +316,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Rell',
     name: 'Rell',
     roles: ['SUPPORT', 'JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Tank', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Rell.png'
   },
@@ -458,9 +323,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Rengar',
     name: 'Rengar',
     roles: ['JUNGLE', 'TOP'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.05,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Rengar.png'
   },
@@ -468,9 +330,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Sejuani',
     name: 'Sejuani',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.03,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Sejuani.png'
   },
@@ -478,9 +337,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Shaco',
     name: 'Shaco',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.08,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Shaco.png'
   },
@@ -488,9 +344,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Udyr',
     name: 'Udyr',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Udyr.png'
   },
@@ -498,9 +351,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Vi',
     name: 'Vi',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.07,
-    banRate: 0.04,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Vi.png'
   },
@@ -508,9 +358,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Viego',
     name: 'Viego',
     roles: ['JUNGLE'],
-    winRate: 0.49,
-    pickRate: 0.10,
-    banRate: 0.06,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Viego.png'
   },
@@ -518,9 +365,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Warwick',
     name: 'Warwick',
     roles: ['JUNGLE', 'TOP'],
-    winRate: 0.52,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Warwick.png'
   },
@@ -528,9 +372,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'XinZhao',
     name: 'Xin Zhao',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/XinZhao.png'
   },
@@ -538,9 +379,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Zac',
     name: 'Zac',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Zac.png'
   },
@@ -550,9 +388,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ahri',
     name: 'Ahri',
     roles: ['MID'],
-    winRate: 0.51,
-    pickRate: 0.10,
-    banRate: 0.05,
     tags: ['Mage', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ahri.png'
   },
@@ -560,9 +395,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Akali',
     name: 'Akali',
     roles: ['MID', 'TOP'],
-    winRate: 0.48,
-    pickRate: 0.10,
-    banRate: 0.15,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Akali.png'
   },
@@ -570,9 +402,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Anivia',
     name: 'Anivia',
     roles: ['MID'],
-    winRate: 0.52,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Anivia.png'
   },
@@ -580,9 +409,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Annie',
     name: 'Annie',
     roles: ['MID', 'SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Annie.png'
   },
@@ -590,9 +416,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Aurelion Sol',
     name: 'Aurelion Sol',
     roles: ['MID'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.08,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/AurelionSol.png'
   },
@@ -600,9 +423,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Azir',
     name: 'Azir',
     roles: ['MID'],
-    winRate: 0.47,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Mage', 'Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Azir.png'
   },
@@ -610,9 +430,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Cassiopeia',
     name: 'Cassiopeia',
     roles: ['MID'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Cassiopeia.png'
   },
@@ -620,9 +437,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Diana',
     name: 'Diana',
     roles: ['MID', 'JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.07,
-    banRate: 0.04,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Diana.png'
   },
@@ -630,9 +444,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ekko',
     name: 'Ekko',
     roles: ['MID', 'JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.05,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ekko.png'
   },
@@ -640,9 +451,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Fizz',
     name: 'Fizz',
     roles: ['MID'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.06,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Fizz.png'
   },
@@ -650,9 +458,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Galio',
     name: 'Galio',
     roles: ['MID', 'SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Tank', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Galio.png'
   },
@@ -660,9 +465,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Hwei',
     name: 'Hwei',
     roles: ['MID', 'SUPPORT'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.06,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Hwei.png'
   },
@@ -670,9 +472,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kassadin',
     name: 'Kassadin',
     roles: ['MID'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.05,
     tags: ['Assassin', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kassadin.png'
   },
@@ -680,9 +479,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Katarina',
     name: 'Katarina',
     roles: ['MID'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.10,
     tags: ['Assassin', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Katarina.png'
   },
@@ -690,9 +486,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'LeBlanc',
     name: 'LeBlanc',
     roles: ['MID'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.08,
     tags: ['Assassin', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Leblanc.png'
   },
@@ -700,9 +493,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Lissandra',
     name: 'Lissandra',
     roles: ['MID'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Lissandra.png'
   },
@@ -710,9 +500,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Lux',
     name: 'Lux',
     roles: ['MID', 'SUPPORT'],
-    winRate: 0.50,
-    pickRate: 0.15,
-    banRate: 0.05,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Lux.png'
   },
@@ -720,9 +507,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Malzahar',
     name: 'Malzahar',
     roles: ['MID'],
-    winRate: 0.52,
-    pickRate: 0.05,
-    banRate: 0.06,
     tags: ['Mage', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Malzahar.png'
   },
@@ -730,9 +514,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Orianna',
     name: 'Orianna',
     roles: ['MID'],
-    winRate: 0.49,
-    pickRate: 0.07,
-    banRate: 0.03,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Orianna.png'
   },
@@ -740,9 +521,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Qiyana',
     name: 'Qiyana',
     roles: ['MID'],
-    winRate: 0.49,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Qiyana.png'
   },
@@ -750,9 +528,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ryze',
     name: 'Ryze',
     roles: ['MID'],
-    winRate: 0.46,
-    pickRate: 0.03,
-    banRate: 0.01,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ryze.png'
   },
@@ -760,9 +535,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Sylas',
     name: 'Sylas',
     roles: ['MID', 'JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.12,
-    banRate: 0.10,
     tags: ['Mage', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Sylas.png'
   },
@@ -770,9 +542,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Syndra',
     name: 'Syndra',
     roles: ['MID'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.05,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Syndra.png'
   },
@@ -780,9 +549,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Talon',
     name: 'Talon',
     roles: ['MID', 'JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Talon.png'
   },
@@ -790,9 +556,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'TwistedFate',
     name: 'Twisted Fate',
     roles: ['MID'],
-    winRate: 0.49,
-    pickRate: 0.05,
-    banRate: 0.02,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/TwistedFate.png'
   },
@@ -800,9 +563,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Veigar',
     name: 'Veigar',
     roles: ['MID'],
-    winRate: 0.52,
-    pickRate: 0.06,
-    banRate: 0.05,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Veigar.png'
   },
@@ -810,9 +570,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Vex',
     name: 'Vex',
     roles: ['MID'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Vex.png'
   },
@@ -820,9 +577,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Viktor',
     name: 'Viktor',
     roles: ['MID'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Viktor.png'
   },
@@ -830,9 +584,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Vladimir',
     name: 'Vladimir',
     roles: ['MID', 'TOP'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Vladimir.png'
   },
@@ -840,9 +591,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Xerath',
     name: 'Xerath',
     roles: ['MID', 'SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Xerath.png'
   },
@@ -850,9 +598,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Yasuo',
     name: 'Yasuo',
     roles: ['MID', 'TOP'],
-    winRate: 0.49,
-    pickRate: 0.12,
-    banRate: 0.15,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Yasuo.png'
   },
@@ -860,9 +605,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Zed',
     name: 'Zed',
     roles: ['MID'],
-    winRate: 0.51,
-    pickRate: 0.12,
-    banRate: 0.30,
     tags: ['Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Zed.png'
   },
@@ -870,9 +612,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Zoe',
     name: 'Zoe',
     roles: ['MID'],
-    winRate: 0.49,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Zoe.png'
   },
@@ -882,9 +621,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Aphelios',
     name: 'Aphelios',
     roles: ['ADC'],
-    winRate: 0.48,
-    pickRate: 0.07,
-    banRate: 0.05,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Aphelios.png'
   },
@@ -892,9 +628,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ashe',
     name: 'Ashe',
     roles: ['ADC', 'SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.15,
-    banRate: 0.08,
     tags: ['Marksman', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ashe.png'
   },
@@ -902,9 +635,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Caitlyn',
     name: 'Caitlyn',
     roles: ['ADC'],
-    winRate: 0.48,
-    pickRate: 0.20,
-    banRate: 0.10,
     tags: ['Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Caitlyn.png'
   },
@@ -912,9 +642,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Draven',
     name: 'Draven',
     roles: ['ADC'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.06,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Draven.png'
   },
@@ -922,9 +649,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ezreal',
     name: 'Ezreal',
     roles: ['ADC'],
-    winRate: 0.49,
-    pickRate: 0.30,
-    banRate: 0.05,
     tags: ['Marksman', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ezreal.png'
   },
@@ -932,9 +656,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Jhin',
     name: 'Jhin',
     roles: ['ADC'],
-    winRate: 0.51,
-    pickRate: 0.18,
-    banRate: 0.04,
     tags: ['Marksman', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Jhin.png'
   },
@@ -942,9 +663,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Jinx',
     name: 'Jinx',
     roles: ['ADC'],
-    winRate: 0.53,
-    pickRate: 0.25,
-    banRate: 0.05,
     tags: ['Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Jinx.png'
   },
@@ -952,9 +670,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kaisa',
     name: "Kai'Sa",
     roles: ['ADC'],
-    winRate: 0.49,
-    pickRate: 0.25,
-    banRate: 0.05,
     tags: ['Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kaisa.png'
   },
@@ -962,9 +677,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kalista',
     name: 'Kalista',
     roles: ['ADC'],
-    winRate: 0.47,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kalista.png'
   },
@@ -972,9 +684,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'KogMaw',
     name: "Kog'Maw",
     roles: ['ADC'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Marksman', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/KogMaw.png'
   },
@@ -982,9 +691,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Lucian',
     name: 'Lucian',
     roles: ['ADC', 'MID'],
-    winRate: 0.49,
-    pickRate: 0.12,
-    banRate: 0.04,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Lucian.png'
   },
@@ -992,9 +698,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'MissFortune',
     name: 'Miss Fortune',
     roles: ['ADC'],
-    winRate: 0.52,
-    pickRate: 0.15,
-    banRate: 0.05,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/MissFortune.png'
   },
@@ -1002,9 +705,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Nilah',
     name: 'Nilah',
     roles: ['ADC'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nilah.png'
   },
@@ -1012,9 +712,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Samira',
     name: 'Samira',
     roles: ['ADC'],
-    winRate: 0.50,
-    pickRate: 0.10,
-    banRate: 0.08,
     tags: ['Marksman', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Samira.png'
   },
@@ -1022,9 +719,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Sivir',
     name: 'Sivir',
     roles: ['ADC'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.02,
     tags: ['Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Sivir.png'
   },
@@ -1032,9 +726,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Smolder',
     name: 'Smolder',
     roles: ['ADC'],
-    winRate: 0.47,
-    pickRate: 0.12,
-    banRate: 0.15,
     tags: ['Marksman', 'Mage'],
     imageUrl: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/7cef5337e65fb08e2785896861c5ea76f983bea8-496x560.jpg?accountingTag=LoL&auto=format&fit=fill&q=80&w=496'
   },
@@ -1042,9 +733,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Tristana',
     name: 'Tristana',
     roles: ['ADC', 'MID'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.04,
     tags: ['Marksman', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Tristana.png'
   },
@@ -1052,9 +740,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Twitch',
     name: 'Twitch',
     roles: ['ADC'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Marksman', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Twitch.png'
   },
@@ -1062,9 +747,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Varus',
     name: 'Varus',
     roles: ['ADC', 'MID'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.03,
     tags: ['Marksman', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Varus.png'
   },
@@ -1072,9 +754,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Vayne',
     name: 'Vayne',
     roles: ['ADC', 'TOP'],
-    winRate: 0.51,
-    pickRate: 0.12,
-    banRate: 0.08,
     tags: ['Marksman', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Vayne.png'
   },
@@ -1082,9 +761,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Xayah',
     name: 'Xayah',
     roles: ['ADC'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.04,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Xayah.png'
   },
@@ -1092,9 +768,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Zeri',
     name: 'Zeri',
     roles: ['ADC'],
-    winRate: 0.47,
-    pickRate: 0.05,
-    banRate: 0.08,
     tags: ['Marksman', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Zeri.png'
   },
@@ -1104,9 +777,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Alistar',
     name: 'Alistar',
     roles: ['SUPPORT'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.02,
     tags: ['Tank', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Alistar.png'
   },
@@ -1114,9 +784,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Bard',
     name: 'Bard',
     roles: ['SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Bard.png'
   },
@@ -1124,9 +791,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Blitzcrank',
     name: 'Blitzcrank',
     roles: ['SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.08,
-    banRate: 0.15,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Blitzcrank.png'
   },
@@ -1134,9 +798,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Braum',
     name: 'Braum',
     roles: ['SUPPORT'],
-    winRate: 0.49,
-    pickRate: 0.05,
-    banRate: 0.02,
     tags: ['Tank', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Braum.png'
   },
@@ -1144,9 +805,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Janna',
     name: 'Janna',
     roles: ['SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.06,
-    banRate: 0.02,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Janna.png'
   },
@@ -1154,9 +812,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Karma',
     name: 'Karma',
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.49,
-    pickRate: 0.06,
-    banRate: 0.02,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Karma.png'
   },
@@ -1164,9 +819,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Leona',
     name: 'Leona',
     roles: ['SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.10,
-    banRate: 0.06,
     tags: ['Tank', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Leona.png'
   },
@@ -1174,9 +826,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Lulu',
     name: 'Lulu',
     roles: ['SUPPORT'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.05,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Lulu.png'
   },
@@ -1184,9 +833,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Milio',
     name: 'Milio',
     roles: ['SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.07,
-    banRate: 0.04,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Milio.png'
   },
@@ -1194,9 +840,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Morgana',
     name: 'Morgana',
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.10,
-    banRate: 0.12,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Morgana.png'
   },
@@ -1204,9 +847,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Nami',
     name: 'Nami',
     roles: ['SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.08,
-    banRate: 0.03,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nami.png'
   },
@@ -1214,9 +854,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Nautilus',
     name: 'Nautilus',
     roles: ['SUPPORT'],
-    winRate: 0.50,
-    pickRate: 0.12,
-    banRate: 0.08,
     tags: ['Tank', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nautilus.png'
   },
@@ -1224,9 +861,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Pyke',
     name: 'Pyke',
     roles: ['SUPPORT'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.10,
     tags: ['Assassin', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Pyke.png'
   },
@@ -1234,9 +868,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Rakan',
     name: 'Rakan',
     roles: ['SUPPORT'],
-    winRate: 0.50,
-    pickRate: 0.08,
-    banRate: 0.04,
     tags: ['Support', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Rakan.png'
   },
@@ -1244,9 +875,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Renata',
     name: 'Renata Glasc',
     roles: ['SUPPORT'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Renata.png'
   },
@@ -1254,9 +882,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Senna',
     name: 'Senna',
     roles: ['SUPPORT', 'ADC'],
-    winRate: 0.50,
-    pickRate: 0.12,
-    banRate: 0.05,
     tags: ['Marksman', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Senna.png'
   },
@@ -1264,9 +889,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Seraphine',
     name: 'Seraphine',
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.08,
-    banRate: 0.04,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Seraphine.png'
   },
@@ -1274,9 +896,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Sona',
     name: 'Sona',
     roles: ['SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.05,
-    banRate: 0.02,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Sona.png'
   },
@@ -1284,9 +903,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Soraka',
     name: 'Soraka',
     roles: ['SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.06,
-    banRate: 0.05,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Soraka.png'
   },
@@ -1294,9 +910,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'TahmKench',
     name: 'Tahm Kench',
     roles: ['SUPPORT', 'TOP'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Tank', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/TahmKench.png'
   },
@@ -1304,9 +917,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Taric',
     name: 'Taric',
     roles: ['SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.03,
-    banRate: 0.01,
     tags: ['Tank', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Taric.png'
   },
@@ -1314,9 +924,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Thresh',
     name: 'Thresh',
     roles: ['SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.15,
-    banRate: 0.04,
     tags: ['Support', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Thresh.png'
   },
@@ -1324,9 +931,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Yuumi',
     name: 'Yuumi',
     roles: ['SUPPORT'],
-    winRate: 0.48,
-    pickRate: 0.05,
-    banRate: 0.15,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Yuumi.png'
   },
@@ -1334,9 +938,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Zyra',
     name: 'Zyra',
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Zyra.png'
   },
@@ -1346,9 +947,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Akshan',
     name: 'Akshan',
     roles: ['MID', 'TOP'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Marksman', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Akshan.png'
   },
@@ -1356,9 +954,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Amumu',
     name: 'Amumu',
     roles: ['JUNGLE', 'SUPPORT'],
-    winRate: 0.52,
-    pickRate: 0.06,
-    banRate: 0.03,
     tags: ['Tank', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Amumu.png'
   },
@@ -1366,9 +961,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Aurora',
     name: 'Aurora',
     roles: ['MID', 'TOP'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.12,
     tags: ['Mage', 'Assassin'],
     imageUrl: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?accountingTag=LoL&auto=format&fit=fill&q=80&w=418'
   },
@@ -1376,9 +968,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'BelVeth',
     name: "Bel'Veth",
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.08,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Belveth.png'
   },
@@ -1386,9 +975,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Brand',
     name: 'Brand',
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.07,
-    banRate: 0.05,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Brand.png'
   },
@@ -1396,9 +982,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Briar',
     name: 'Briar',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.07,
-    banRate: 0.10,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Briar.png'
   },
@@ -1406,9 +989,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'ChoGath',
     name: "Cho'Gath",
     roles: ['TOP', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Tank', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Chogath.png'
   },
@@ -1416,9 +996,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Corki',
     name: 'Corki',
     roles: ['MID', 'ADC'],
-    winRate: 0.49,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Marksman', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Corki.png'
   },
@@ -1426,9 +1003,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'DrMundo',
     name: 'Dr. Mundo',
     roles: ['TOP', 'JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/DrMundo.png'
   },
@@ -1436,9 +1010,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Fiddlesticks',
     name: 'Fiddlesticks',
     roles: ['JUNGLE'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.04,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Fiddlesticks.png'
   },
@@ -1446,9 +1017,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Gragas',
     name: 'Gragas',
     roles: ['JUNGLE', 'TOP', 'MID'],
-    winRate: 0.50,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Fighter', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Gragas.png'
   },
@@ -1456,9 +1024,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Heimerdinger',
     name: 'Heimerdinger',
     roles: ['MID', 'TOP', 'SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.03,
-    banRate: 0.02,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Heimerdinger.png'
   },
@@ -1466,9 +1031,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ivern',
     name: 'Ivern',
     roles: ['JUNGLE'],
-    winRate: 0.52,
-    pickRate: 0.02,
-    banRate: 0.01,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ivern.png'
   },
@@ -1476,9 +1038,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Karthus',
     name: 'Karthus',
     roles: ['JUNGLE', 'MID'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Karthus.png'
   },
@@ -1486,9 +1045,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kayle',
     name: 'Kayle',
     roles: ['TOP', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Fighter', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kayle.png'
   },
@@ -1496,9 +1052,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Kled',
     name: 'Kled',
     roles: ['TOP'],
-    winRate: 0.50,
-    pickRate: 0.03,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kled.png'
   },
@@ -1506,9 +1059,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Maokai',
     name: 'Maokai',
     roles: ['SUPPORT', 'JUNGLE', 'TOP'],
-    winRate: 0.51,
-    pickRate: 0.06,
-    banRate: 0.05,
     tags: ['Tank', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Maokai.png'
   },
@@ -1516,9 +1066,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Mel',
     name: 'Mel',
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.48,
-    pickRate: 0.10,
-    banRate: 0.15,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/52ef003ccb9a9464bbb87d72ded0e4ae11b4fe32-496x560.png?accountingTag=LoL&auto=format&fit=fill&q=80&w=496'
   },
@@ -1526,9 +1073,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Naafiri',
     name: 'Naafiri',
     roles: ['MID', 'JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Assassin', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Naafiri.png'
   },
@@ -1536,9 +1080,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Neeko',
     name: 'Neeko',
     roles: ['MID', 'SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Neeko.png'
   },
@@ -1546,9 +1087,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Olaf',
     name: 'Olaf',
     roles: ['TOP', 'JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Olaf.png'
   },
@@ -1556,9 +1094,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Pantheon',
     name: 'Pantheon',
     roles: ['TOP', 'MID', 'SUPPORT'],
-    winRate: 0.50,
-    pickRate: 0.06,
-    banRate: 0.04,
     tags: ['Fighter', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Pantheon.png'
   },
@@ -1566,9 +1101,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Poppy',
     name: 'Poppy',
     roles: ['TOP', 'JUNGLE', 'SUPPORT'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Poppy.png'
   },
@@ -1576,9 +1108,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Quinn',
     name: 'Quinn',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.02,
-    banRate: 0.01,
     tags: ['Marksman', 'Assassin'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Quinn.png'
   },
@@ -1586,9 +1115,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Rammus',
     name: 'Rammus',
     roles: ['JUNGLE'],
-    winRate: 0.52,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Rammus.png'
   },
@@ -1596,9 +1122,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Shyvana',
     name: 'Shyvana',
     roles: ['JUNGLE'],
-    winRate: 0.50,
-    pickRate: 0.03,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Shyvana.png'
   },
@@ -1606,9 +1129,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Singed',
     name: 'Singed',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.02,
-    banRate: 0.01,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Singed.png'
   },
@@ -1616,9 +1136,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Sion',
     name: 'Sion',
     roles: ['TOP'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Tank', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Sion.png'
   },
@@ -1626,9 +1143,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Skarner',
     name: 'Skarner',
     roles: ['JUNGLE', 'TOP'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.05,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Skarner.png'
   },
@@ -1636,9 +1150,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Swain',
     name: 'Swain',
     roles: ['SUPPORT', 'MID', 'ADC'],
-    winRate: 0.51,
-    pickRate: 0.05,
-    banRate: 0.03,
     tags: ['Mage', 'Fighter'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Swain.png'
   },
@@ -1646,9 +1157,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Taliyah',
     name: 'Taliyah',
     roles: ['JUNGLE', 'MID'],
-    winRate: 0.50,
-    pickRate: 0.03,
-    banRate: 0.02,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Taliyah.png'
   },
@@ -1656,9 +1164,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Trundle',
     name: 'Trundle',
     roles: ['JUNGLE', 'TOP'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Trundle.png'
   },
@@ -1666,9 +1171,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'VelKoz',
     name: "Vel'Koz",
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.51,
-    pickRate: 0.03,
-    banRate: 0.02,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Velkoz.png'
   },
@@ -1676,9 +1178,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Wukong',
     name: 'Wukong',
     roles: ['JUNGLE', 'TOP'],
-    winRate: 0.51,
-    pickRate: 0.04,
-    banRate: 0.03,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/MonkeyKing.png'
   },
@@ -1686,9 +1185,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Yorick',
     name: 'Yorick',
     roles: ['TOP'],
-    winRate: 0.51,
-    pickRate: 0.03,
-    banRate: 0.02,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Yorick.png'
   },
@@ -1696,9 +1192,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Ziggs',
     name: 'Ziggs',
     roles: ['MID', 'ADC'],
-    winRate: 0.50,
-    pickRate: 0.04,
-    banRate: 0.02,
     tags: ['Mage', 'Marksman'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ziggs.png'
   },
@@ -1706,9 +1199,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Zilean',
     name: 'Zilean',
     roles: ['SUPPORT', 'MID'],
-    winRate: 0.52,
-    pickRate: 0.03,
-    banRate: 0.02,
     tags: ['Support', 'Mage'],
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Zilean.png'
   },
@@ -1716,9 +1206,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Yunara',
     name: 'Yunara',
     roles: ['MID', 'SUPPORT'],
-    winRate: 0.48,
-    pickRate: 0.06,
-    banRate: 0.08,
     tags: ['Mage', 'Support'],
     imageUrl: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/b3381de96aebe82cfc71c513b9a6bf4cf408e445-496x560.jpg?accountingTag=LoL&auto=format&fit=fill&q=80&w=496'
   },
@@ -1726,9 +1213,6 @@ export const CHAMPIONS: Champion[] = [
     id: 'Zaahen',
     name: 'Zaahen',
     roles: ['TOP', 'JUNGLE'],
-    winRate: 0.49,
-    pickRate: 0.08,
-    banRate: 0.12,
     tags: ['Fighter', 'Tank'],
     imageUrl: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/eb649092d2b70f9d9c417c1007425acd5634013d-956x1080.jpg?accountingTag=LoL&auto=format&fit=fill&q=80&w=528'
   }

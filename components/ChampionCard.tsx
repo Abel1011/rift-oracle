@@ -171,29 +171,6 @@ export const ChampionCard: React.FC<ChampionCardProps> = ({
           </div>
         )}
 
-        {/* Win Rate Indicator */}
-        {!small && !disabled && (
-          <div className="absolute top-1 left-1 z-20">
-            <div className={`px-1.5 py-0.5 bg-[var(--hextech-black)]/80 border 
-              ${champion.winRate >= 0.52 
-                ? 'border-[var(--blue-3)]/50' 
-                : champion.winRate <= 0.48 
-                  ? 'border-[var(--red-4)]/50' 
-                  : 'border-[var(--gold-5)]/50'
-              }`}>
-              <span className={`text-[8px] font-[var(--font-spiegel)] font-bold
-                ${champion.winRate >= 0.52 
-                  ? 'text-[var(--blue-2)]' 
-                  : champion.winRate <= 0.48 
-                    ? 'text-[var(--red-3)]' 
-                    : 'text-[var(--gold-2)]'
-                }`}>
-                {Math.round(champion.winRate * 100)}%
-              </span>
-            </div>
-          </div>
-        )}
-
         {/* Scanline Effect */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{

@@ -5,14 +5,12 @@ import { useRouter } from 'next/navigation';
 import { CHAMPIONS } from '@/lib/data';
 import { DraftState, Role } from '@/lib/types';
 import { INITIAL_DRAFT_STATE, getNextAction } from '@/lib/draftLogic';
-import { getRecommendations, predictEnemyPicks, calculateWinProbability } from '@/lib/recommender';
 import { ChampionCard } from '@/components/ChampionCard';
-import { RecommendationPanel } from '@/components/RecommendationPanel';
 import { DraftTimer } from '@/components/DraftTimer';
 import { DraftPhaseIndicator } from '@/components/DraftPhaseIndicator';
 import { useDraftSync } from '@/hooks/useDraftSync';
 import { useDraftConfig } from '@/lib/context/DraftConfigContext';
-import { Diamond, Shield, Sword, RotateCcw, Search, PanelLeftClose, PanelRightClose, Menu, X, ArrowLeftRight, Settings, BarChart3, Sparkles, ExternalLink, Brain } from 'lucide-react';
+import { Diamond, Shield, Sword, RotateCcw, Search, PanelLeftClose, PanelRightClose, Menu, X, ArrowLeftRight, Settings, Brain } from 'lucide-react';
 
 // Champion class tags for filtering
 const CHAMPION_TAGS = ['Fighter', 'Tank', 'Mage', 'Assassin', 'Marksman', 'Support'] as const;
@@ -61,20 +59,6 @@ export default function Home() {
   }, [draftState, publishState]);
 
   const currentAction = getNextAction(draftState.currentTurn);
-  const recommendations = useMemo(() => 
-    currentAction ? getRecommendations(draftState, currentAction.side) : [],
-    [draftState, currentAction]
-  );
-
-  const predictions = useMemo(() => 
-    predictEnemyPicks(draftState),
-    [draftState]
-  );
-  
-  const winProbability = useMemo(() => 
-    calculateWinProbability(draftState),
-    [draftState]
-  );
 
   // Enhanced filtering with tags and sorting
   const filteredChampions = useMemo(() => {
@@ -228,52 +212,18 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Center Section - Win Probability Bar */}
+        {/* Center Section - Title */}
         <div className="flex-1 flex justify-center px-2 sm:px-4 md:px-6 lg:px-8">
-          {/* Desktop/Tablet Win Bar */}
-          <div className="hidden sm:block w-full max-w-[200px] md:max-w-[280px] lg:max-w-[400px]">
-            <div className="flex justify-between items-center mb-0.5 md:mb-1 px-1">
-              <div className="flex items-center gap-1">
-                <Shield className="w-3 h-3 md:w-4 md:h-4 text-[var(--blue-2)]" />
-                <span className="text-[9px] md:text-[10px] lg:text-[11px] font-[var(--font-beaufort)] font-bold text-blue-glow tracking-wider">
-                  {blueTeam?.nameShortened || 'BLU'} {Math.round(winProbability.blue)}%
-                </span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="text-[9px] md:text-[10px] lg:text-[11px] font-[var(--font-beaufort)] font-bold text-red-glow tracking-wider">
-                  {Math.round(winProbability.red)}% {redTeam?.nameShortened || 'RED'}
-                </span>
-                <Sword className="w-3 h-3 md:w-4 md:h-4 text-[var(--red-3)]" />
-              </div>
-            </div>
-            
-            <div className="relative h-1.5 md:h-2 lg:h-3 bg-[var(--hextech-metal)] border border-[var(--gold-5)] overflow-hidden">
-              <div 
-                className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--blue-4)] to-[var(--blue-2)] transition-all duration-1000 ease-out"
-                style={{ width: `${winProbability.blue}%` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20" />
-              </div>
-              <div 
-                className="absolute top-0 right-0 h-full bg-gradient-to-l from-[var(--red-5)] to-[var(--red-3)] transition-all duration-1000 ease-out"
-                style={{ width: `${winProbability.red}%` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20" />
-              </div>
-              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[var(--gold-2)] -translate-x-1/2 z-10 shadow-[0_0_10px_var(--gold-3)]" />
-            </div>
-          </div>
-          
-          {/* Mobile Win Probability - Ultra Compact */}
-          <div className="sm:hidden flex items-center gap-1.5">
-            <span className="text-[9px] font-bold text-[var(--blue-2)]">{Math.round(winProbability.blue)}%</span>
-            <div className="w-12 h-1.5 bg-[var(--hextech-metal)] border border-[var(--gold-5)] overflow-hidden rounded-full">
-              <div 
-                className="h-full bg-gradient-to-r from-[var(--blue-3)] to-[var(--blue-2)]"
-                style={{ width: `${winProbability.blue}%` }}
-              />
-            </div>
-            <span className="text-[9px] font-bold text-[var(--red-3)]">{Math.round(winProbability.red)}%</span>
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-[var(--blue-2)]" />
+            <span className="text-xs md:text-sm font-[var(--font-beaufort)] font-bold text-[var(--gold-2)] tracking-wider">
+              {blueTeam?.nameShortened || 'BLU'}
+            </span>
+            <span className="text-[var(--muted)] mx-2">vs</span>
+            <span className="text-xs md:text-sm font-[var(--font-beaufort)] font-bold text-[var(--gold-2)] tracking-wider">
+              {redTeam?.nameShortened || 'RED'}
+            </span>
+            <Sword className="w-4 h-4 text-[var(--red-3)]" />
           </div>
         </div>
 
@@ -951,56 +901,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* Recommendations Panel */}
-          <div className="flex-shrink-0 h-[280px] border-t border-[var(--gold-5)]/30 overflow-hidden">
-            <RecommendationPanel 
-              recommendations={recommendations}
-              predictions={predictions}
-              winProbability={winProbability}
-            />
-          </div>
         </aside>
       </main>
-
-      {/* ===== FLOATING ANALYSIS BUTTON ===== */}
-      <div className="fixed bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-50">
-        <button
-          onClick={() => window.open('/analysis', '_blank')}
-          className="group relative flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4
-            bg-gradient-to-r from-[var(--gold-5)] via-[var(--gold-3)] to-[var(--gold-5)]
-            border-2 border-[var(--gold-2)] rounded-full
-            shadow-[0_0_30px_rgba(200,170,110,0.4),0_0_60px_rgba(200,170,110,0.2)]
-            hover:shadow-[0_0_40px_rgba(200,170,110,0.6),0_0_80px_rgba(200,170,110,0.3)]
-            hover:scale-105 active:scale-95
-            transition-all duration-300 overflow-hidden"
-        >
-          {/* Animated background shimmer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-          
-          {/* Pulse ring effect */}
-          <div className="absolute inset-0 rounded-full border-2 border-[var(--gold-2)] animate-ping opacity-30" />
-          
-          {/* Icon */}
-          <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-[var(--hextech-black)]/80 border border-[var(--gold-3)]">
-            <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--gold-2)]" />
-            <Sparkles className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 text-[var(--blue-2)] animate-pulse" />
-          </div>
-          
-          {/* Text */}
-          <div className="relative flex flex-col items-start">
-            <span className="text-[10px] sm:text-[11px] text-[var(--hextech-black)] font-[var(--font-spiegel)] font-bold tracking-wider uppercase">
-              AI Analysis
-            </span>
-            <span className="text-[8px] sm:text-[9px] text-[var(--hextech-black)]/70 font-medium hidden sm:block">
-              Live Predictions & Stats
-            </span>
-          </div>
-          
-          {/* External link indicator */}
-          <ExternalLink className="relative w-3 h-3 sm:w-4 sm:h-4 text-[var(--hextech-black)]/60 group-hover:text-[var(--hextech-black)] transition-colors" />
-        </button>
-      </div>
 
       {/* ===== FOOTER - STICKY ===== */}
       <footer className="h-8 flex-shrink-0 border-t border-[var(--gold-5)]/30 bg-[var(--hextech-metal)]/50 px-6 flex items-center justify-between">

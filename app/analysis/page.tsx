@@ -230,7 +230,7 @@ export default function AnalysisPage() {
                   </div>
                 </div>
                 
-                {analysis && (
+                {analysis && analysis.winProbability && typeof analysis.winProbability.ourTeam === 'number' && (
                   <div className="flex items-center gap-4 md:gap-8">
                     <div className="text-center">
                       <div className={`text-4xl md:text-5xl font-[var(--font-beaufort)] font-black tabular-nums ${analysis.winProbability.ourTeam >= 50 ? 'text-[var(--blue-2)]' : 'text-[var(--red-3)]'}`}>
@@ -850,7 +850,7 @@ function CompositionPanel({ title, picks, bans, side, teamData, teamName, compos
 }
 
 function DraftCompletePanel({ analysis, assistFor, assistedTeam }: { analysis: DraftAnalysis | null; assistFor: 'BLUE' | 'RED'; assistedTeam: { name: string; nameShortened?: string; logoUrl?: string } | null; }) {
-  const winProb = analysis?.winProbability.ourTeam || 50;
+  const winProb = analysis?.winProbability?.ourTeam ?? 50;
   const favorable = winProb >= 50;
   return (
     <div className={`${favorable ? 'hextech-border-blue' : 'hextech-border-red'} overflow-hidden`}>
