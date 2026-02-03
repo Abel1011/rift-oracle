@@ -1,13 +1,19 @@
 import { Champion } from './types';
 
-export const CHAMPIONS: Champion[] = [
+type ChampionSeed = Omit<Champion, 'winRate' | 'pickRate' | 'banRate'> &
+  Partial<Pick<Champion, 'winRate' | 'pickRate' | 'banRate'>>;
+
+const CHAMPIONS_SEED: ChampionSeed[] = [
   // ===== TOP LANERS =====
   {
     id: 'Aatrox',
     name: 'Aatrox',
     roles: ['TOP'],
     tags: ['Fighter', 'Tank'],
-    imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Aatrox.png'
+    imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Aatrox.png',
+    winRate: 0,
+    pickRate: 0,
+    banRate: 0
   },
   {
     id: 'Ambessa',
@@ -56,7 +62,10 @@ export const CHAMPIONS: Champion[] = [
     name: 'Gnar',
     roles: ['TOP'],
     tags: ['Fighter', 'Tank'],
-    imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Gnar.png'
+    imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Gnar.png',
+    winRate: 0,
+    pickRate: 0,
+    banRate: 0
   },
   {
     id: 'Gwen',
@@ -706,7 +715,10 @@ export const CHAMPIONS: Champion[] = [
     name: 'Nilah',
     roles: ['ADC'],
     tags: ['Fighter', 'Assassin'],
-    imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nilah.png'
+    imageUrl: 'https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Nilah.png',
+    winRate: 0,
+    pickRate: 0,
+    banRate: 0
   },
   {
     id: 'Samira',
@@ -1217,3 +1229,10 @@ export const CHAMPIONS: Champion[] = [
     imageUrl: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/eb649092d2b70f9d9c417c1007425acd5634013d-956x1080.jpg?accountingTag=LoL&auto=format&fit=fill&q=80&w=528'
   }
 ];
+
+export const CHAMPIONS: Champion[] = CHAMPIONS_SEED.map((champion) => {
+  const winRate = champion.winRate ?? 0;
+  const pickRate = champion.pickRate ?? 0;
+  const banRate = champion.banRate ?? 0;
+  return { ...champion, winRate, pickRate, banRate };
+});
